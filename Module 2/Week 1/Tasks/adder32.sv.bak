@@ -1,0 +1,93 @@
+//------------------------------------------------------------------------------
+// Module: 32_bit_CLA
+// Description:
+//   It is a 32-bit adder block that works on carry-lookahead principle. It is
+//   implemented by cascading 4 8-bit carry-lookahead adders to cater for
+//   32-bits.
+//
+// Author      : Muhammad Ahmed Qazi
+// Date        : 2025-12-16
+//------------------------------------------------------------------------------
+
+module 8_bit_CLA #(
+	
+	// Parameter declarations
+	parameter integer DATA_WIDTH = 8
+	)(
+	
+	// Port declarations
+	input   [DATA_WIDTH - 1:0] a, 
+	input	[DATA_WIDTH - 1:0] b,
+	input                      cin,
+
+	output  [DATA_WIDTH - 1:0] sum,
+	output                     cout
+	);
+
+	// Internal signals
+	wire [DATA_WIDTH-1:0] G;
+	wire [DATA_WIDTH-1:0] P;
+	wire [DATA_WIDTH:0]   C;
+
+	// Combinational logic
+	
+	// Bit-level generate and propagate
+	assign G = a & b;
+	assign P = a ^ b;
+
+	// Initial carry
+	assign C[0] = cin;
+
+	// Carry-lookahead logic
+	genvar i;
+	generate
+		for (i = 0; i < DATA_WIDTH; i = i + 1) begin : CLA_CARRY
+			assign C[i + 1] = G[i] | (P[i] & C[i]);
+		end
+	endgenerate
+
+	// Sum calculation
+	assign sum = P ^ C[DATA_WIDTH-1:0];
+
+	// Carry out calculation
+	assign cout = C[DATA_WIDTH];
+
+endmodule
+
+module 32_bit_adder (
+	
+	// Port declarations
+	input  [31:0] a,
+	input  [31:0] b,
+	input         cin,
+
+	output [32:0] sum,
+	output        cout
+	);
+
+	// Internal signals
+	wire [31:0] adder_sum;
+	wire [4:0]  adder_cout;
+
+	assign adder_cout[0] = cin;
+
+	// Module instantiation
+	genvar i;
+	generate
+		for (i = 0; i < 32; i = i + 8) begin : CLA_ADDITION
+			8_bit_CLA cla (
+				.a (a[i + 7:i]),
+				.b (b[i + 7: i]),
+				.cin (adder_cout[i]),
+				.sum (adder_sum[i + 7:i]),
+				.cout (adder_cout[i + 1])
+			);
+		end
+	endgenerate
+	
+	assign sum = adder_sum;
+	assign cout = adder_cout[5];
+
+endmodule
+
+

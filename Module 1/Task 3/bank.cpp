@@ -59,6 +59,10 @@ class Account {
 			cout << "You have Rs." << balance << " in your account." << endl;
 		}
 
+		void transferBalance() {
+			
+		}
+
 };
 
 class SavingsAccount : public Account {
