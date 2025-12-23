@@ -1,0 +1,139 @@
+$date
+	Mon Dec 22 11:51:35 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_manchesterMealy $end
+$var wire 1 ! z $end
+$var reg 1 " clk $end
+$var reg 1 # w $end
+$scope module dut $end
+$var wire 1 " clk $end
+$var wire 1 # w $end
+$var reg 2 $ nextstate [1:0] $end
+$var reg 2 % state [1:0] $end
+$var reg 1 ! z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+b10 $
+1#
+0"
+1!
+$end
+#5000
+0!
+b0 $
+b10 %
+1"
+#10000
+0"
+#15000
+1!
+b10 $
+b0 %
+1"
+#20000
+0"
+#25000
+0!
+b0 $
+b10 %
+1"
+#30000
+0"
+#35000
+1!
+b10 $
+b0 %
+1"
+#40000
+0"
+#45000
+0!
+b0 $
+b10 %
+1"
+#50000
+0"
+#55000
+1!
+b10 $
+b0 %
+1"
+#60000
+0"
+#65000
+b1 %
+1!
+b0 $
+1"
+0#
+#70000
+0"
+#75000
+0!
+b1 $
+b0 %
+1"
+#80000
+0"
+#85000
+1!
+b0 $
+b1 %
+1"
+#90000
+0"
+#95000
+0!
+b1 $
+b0 %
+1"
+#100000
+0"
+#105000
+b10 %
+0!
+b0 $
+1"
+1#
+#110000
+0"
+#115000
+1!
+b10 $
+b0 %
+1"
+#120000
+0"
+#125000
+b1 %
+1!
+b0 $
+1"
+0#
+#130000
+0"
+#135000
+0!
+b1 $
+b0 %
+1"
+#140000
+0"
+#145000
+1!
+b0 $
+b1 %
+1"

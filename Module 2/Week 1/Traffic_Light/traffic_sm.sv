@@ -1,0 +1,46 @@
+module trafficSignal (clk_50, r, y, g);
+    input clk_50;
+    output reg r, y, g;
+
+    wire clk;
+    (* keep = 1 *) reg [2:0] state, nextstate;
+
+    initial begin
+        state = 3'b000;
+        nextstate = 3'b000;
+        {r, y, g} = 3'b000;
+    end
+
+    always @(state) begin
+        case (state)
+            3'b000: nextstate = 3'b001; 
+            3'b001: nextstate = 3'b010; 
+            3'b010: nextstate = 3'b011; 
+            3'b011: nextstate = 3'b100; 
+            3'b100: nextstate = 3'b101; 
+            3'b101: nextstate = 3'b110; 
+            3'b110: nextstate = 3'b111; 
+            3'b111: nextstate = 3'b000; 
+        endcase
+    end
+
+    always @(state) begin
+        case (state)
+            3'b000: {r, y, g} = 3'b100; 
+            3'b001: {r, y, g} = 3'b100; 
+            3'b010: {r, y, g} = 3'b100; 
+            3'b011: {r, y, g} = 3'b110; 
+            3'b100: {r, y, g} = 3'b001; 
+            3'b101: {r, y, g} = 3'b001; 
+            3'b110: {r, y, g} = 3'b001; 
+            3'b111: {r, y, g} = 3'b010; 
+        endcase
+    end
+
+    always @(posedge clk) begin
+        state <= nextstate;
+    end
+
+    clock_divider divider1 (.outclk_0(clk), .refclk(clk_50));
+
+endmodule
