@@ -1,0 +1,70 @@
+$date
+	Mon Dec 29 09:22:21 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module reg32_tb $end
+$var wire 32 ! q [31:0] $end
+$var reg 1 " clk $end
+$var reg 32 # d [31:0] $end
+$var reg 1 $ load $end
+$var reg 1 % rst_n $end
+$scope module dut $end
+$var wire 1 " clk $end
+$var wire 32 & d [31:0] $end
+$var wire 1 $ load $end
+$var wire 1 % rst_n $end
+$var parameter 32 ' DATA_WIDTH $end
+$var reg 32 ( q [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100000 '
+$end
+#0
+$dumpvars
+b0 (
+b0 &
+0%
+0$
+b0 #
+0"
+b0 !
+$end
+#5
+1"
+#10
+0"
+#12
+1%
+#15
+b10100101101001011010010110100101 !
+b10100101101001011010010110100101 (
+b10100101101001011010010110100101 #
+b10100101101001011010010110100101 &
+1$
+1"
+#20
+0"
+#25
+b11111111111111111111111111111111 #
+b11111111111111111111111111111111 &
+0$
+1"
+#30
+0"
+#35
+b0 !
+b0 (
+0%
+1"
+#40
+0"
+#45
+1"

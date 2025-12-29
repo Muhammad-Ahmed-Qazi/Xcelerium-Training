@@ -7,5 +7,6 @@ sites/site*/public/admin/
 sites/site*/public/setup/
 sites/site*/public/theme/
 textpattern/
+**/obj_dir/
 HISTORY.txt
 README.txt
