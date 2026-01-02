@@ -82,7 +82,7 @@ module array_multiplier #(
 
     // Sum between stages
     wire [2*DATA_WIDTH-1: 0] sum [DATA_WIDTH-1:0];
-
+l
     genvar i;
     // Generate partial products
     generate
