@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1770634863" />
+    <testcase name="main" classname="testbench2" file="/home/muhammad-ahmed-qazi/Documents/GitHub/Xcelerium-Training/Module_2/Toolchains/testbench2.py" lineno="16" time="0.0013072490692138672" sim_time_ns="14.0" ratio_time="10709.512310778771" />
+  </testsuite>
+</testsuites>
